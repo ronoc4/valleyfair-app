@@ -16,5 +16,19 @@ namespace Project_12_2
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DateTime currDateTime = DateTime.Now;
+            //int now = currDateTime.Second; 
+            this.Text = Convert.ToString(currDateTime);
+        }
+
+
+        
+
+
+        //todo Add code
+
     }
 }
