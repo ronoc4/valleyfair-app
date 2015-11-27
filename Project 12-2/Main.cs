@@ -10,19 +10,21 @@ using System.Windows.Forms;
 
 namespace Project_12_2
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        string currDateTime = DateTime.Now.ToString("hh:mm:ss tt");
+
+        public Main()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DateTime currDateTime = DateTime.Now;
-            //int now = currDateTime.Second; 
+            string currDateTime = DateTime.Now.ToString("hh:mm:ss tt");
             this.Text = Convert.ToString(currDateTime);
         }
+
 
 
         

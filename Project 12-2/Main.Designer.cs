@@ -1,6 +1,6 @@
 ﻿namespace Project_12_2
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
