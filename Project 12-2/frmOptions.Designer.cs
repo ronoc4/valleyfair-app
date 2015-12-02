@@ -37,10 +37,8 @@
             this.txtGuestWindow = new System.Windows.Forms.TextBox();
             this.txtFirstTicket = new System.Windows.Forms.TextBox();
             this.btnOptionsOK = new System.Windows.Forms.Button();
-            this.numericUpDownStartTime = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownEndTime = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndTime)).BeginInit();
+            this.dateTimePickerEndTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -103,8 +101,7 @@
             this.txtGuestWindow.Name = "txtGuestWindow";
             this.txtGuestWindow.Size = new System.Drawing.Size(100, 20);
             this.txtGuestWindow.TabIndex = 3;
-            this.txtGuestWindow.Tag = "f";
-            this.txtGuestWindow.Text = "5";
+            this.txtGuestWindow.Tag = "TicketNumber";
             // 
             // txtFirstTicket
             // 
@@ -125,27 +122,29 @@
             this.btnOptionsOK.UseVisualStyleBackColor = true;
             this.btnOptionsOK.Click += new System.EventHandler(this.btnOptionsOK_Click);
             // 
-            // numericUpDownStartTime
+            // dateTimePickerEndTime
             // 
-            this.numericUpDownStartTime.Location = new System.Drawing.Point(123, 69);
-            this.numericUpDownStartTime.Name = "numericUpDownStartTime";
-            this.numericUpDownStartTime.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDownStartTime.TabIndex = 8;
+            this.dateTimePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerEndTime.Location = new System.Drawing.Point(123, 92);
+            this.dateTimePickerEndTime.Name = "dateTimePickerEndTime";
+            this.dateTimePickerEndTime.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerEndTime.TabIndex = 9;
             // 
-            // numericUpDownEndTime
+            // dateTimePickerStartTime
             // 
-            this.numericUpDownEndTime.Location = new System.Drawing.Point(123, 92);
-            this.numericUpDownEndTime.Name = "numericUpDownEndTime";
-            this.numericUpDownEndTime.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDownEndTime.TabIndex = 9;
+            this.dateTimePickerStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerStartTime.Location = new System.Drawing.Point(123, 66);
+            this.dateTimePickerStartTime.Name = "dateTimePickerStartTime";
+            this.dateTimePickerStartTime.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerStartTime.TabIndex = 8;
             // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(235, 196);
-            this.Controls.Add(this.numericUpDownEndTime);
-            this.Controls.Add(this.numericUpDownStartTime);
+            this.Controls.Add(this.dateTimePickerEndTime);
+            this.Controls.Add(this.dateTimePickerStartTime);
             this.Controls.Add(this.btnOptionsOK);
             this.Controls.Add(this.txtFirstTicket);
             this.Controls.Add(this.txtGuestWindow);
@@ -157,8 +156,6 @@
             this.Controls.Add(this.label1);
             this.Name = "frmOptions";
             this.Text = "Options";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,7 +172,7 @@
         private System.Windows.Forms.TextBox txtGuestWindow;
         private System.Windows.Forms.TextBox txtFirstTicket;
         private System.Windows.Forms.Button btnOptionsOK;
-        private System.Windows.Forms.NumericUpDown numericUpDownStartTime;
-        private System.Windows.Forms.NumericUpDown numericUpDownEndTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEndTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartTime;
     }
 }

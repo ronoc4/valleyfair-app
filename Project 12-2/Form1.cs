@@ -28,28 +28,9 @@ namespace Project_12_2
             RefreshTimer.Interval = 5000;
             RefreshTimer.Enabled = true;
 
-
-
-
             string ShortTime = currentTime.ToLongTimeString();
             this.Text = ShortTime;
-            
-            
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         private void LoadOptions(object sender, EventArgs e)
@@ -65,7 +46,15 @@ namespace Project_12_2
         // this button click adds a new ticket based on the information from the options window 
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
+            Ticket newTicket = new Ticket(); 
+            newTicket =
+        }
 
+        private void btnOptions_Click(object sender, EventArgs e)
+        {
+            frmOptions Options = new frmOptions();
+            Options.Visible = true; 
+            
         }
 
 
