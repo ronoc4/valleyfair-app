@@ -17,16 +17,12 @@ namespace Project_12_2
             InitializeComponent();
           //  MessageBox.Show("All current tickets will be deleted");
 
+            // Start and end times for the form
             DateTime timeNow = DateTime.Now;
-            DateTime timePlusFour = timeNow.AddHours(4);
-
-            string defaultOpen = timeNow.ToLongTimeString();
-            string defaultClose = timePlusFour.ToLongTimeString();
-
-
-            txtStartTime.Text = defaultOpen;
-            txtEndTime.Text = defaultClose;
-            
+            dateTimePickerStart.Value = timeNow;
+            dateTimePickerEnd.Value = timeNow.AddHours(4);
+           
+           
         }
 
 
@@ -41,11 +37,11 @@ namespace Project_12_2
               IsPresent(txtGuestWindow, "Guests Per Window") &&
               IsDecimal(txtGuestWindow, "Guests Per Window") &&
 //need to add IsTime instead of IsDecimal
-              IsPresent(txtStartTime, "Start time") &&
-              IsDecimal(txtStartTime, "Start time") &&
-//need to add IsTime instead of IsDecimal
-              IsPresent(txtEndTime, "End time") &&
-              IsDecimal(txtEndTime, "End time") &&
+//              IsPresent(txtStartTime, "Start time") &&
+//              IsDecimal(txtStartTime, "Start time") &&
+////need to add IsTime instead of IsDecimal
+//              IsPresent(txtEndTime, "End time") &&
+//              IsDecimal(txtEndTime, "End time") &&
 
               IsPresent(txtFirstTicket, "First ticket number") &&
               IsDecimal(txtFirstTicket, "First ticket number"); 
