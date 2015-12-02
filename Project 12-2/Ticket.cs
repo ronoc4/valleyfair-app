@@ -11,19 +11,21 @@ namespace Project_12_2
         // every ticket needs a ticket number
         private int ticketNumber;
         // time the ticket was issued. 
-        private int ticketTime;
+        private DateTime ticketTime;
 
 
         public Ticket()
         {
         }
 
-        public Ticket(int ticketNumber, int ticketTime)
+        // what a ticket should consist of 
+        public Ticket(int ticketNumber, DateTime ticketTime)
         {
             this.TicketNumber = ticketNumber;
             this.TicketTime = ticketTime;
         }
 
+        // access the ticket number field. 
         public int TicketNumber 
         {
             get
@@ -32,14 +34,27 @@ namespace Project_12_2
             }
                 set
                 {
-                    ticketNumber = Convert.ToInt16(value);
+                    ticketNumber = value; 
                 }
             }
-        public int TicketTime { get; set; }
+
+
+        public DateTime TicketTime
+        {
+            get
+            {
+                return ticketTime;
+            }
+            set
+            {
+                ticketTime = value;
+            }
+        }
+
 
         public string nextTicketNumber(string sep)
         {
-            return ( "Ticket" + TicketNumber.ToString() +":" + sep + TicketTime.ToString());
+            return ( "Ticket" + TicketNumber.ToString() +":" + sep +  TicketTime.ToString());
         }
     }
 }

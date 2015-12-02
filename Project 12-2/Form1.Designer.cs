@@ -154,6 +154,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(148, 413);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
@@ -165,8 +166,10 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnIssueTicket;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(428, 453);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnOptions);

@@ -10,21 +10,31 @@ using System.Windows.Forms;
 
 namespace Project_12_2
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
+       
     {
 
         public Form1()
         {
-            InitializeComponent();
-            frmOptions frm = new frmOptions();
-            frm.ShowDialog();
 
+            InitializeComponent();
+            
+            // Form Options is the 1st screen that loads. 
+            frmOptions setupOptions = new frmOptions();
+            Ticket newticket = new Ticket();  
+            DialogResult confirmedSetup = setupOptions.ShowDialog();
+            if (confirmedSetup == DialogResult.OK)
+            {
+                listBoxTicketQueueList.Items.Add(newticket.nextTicketNumber(""));
+                //newticket.TicketNumber = Convert.ToUInt16(setupOptions.Tag);
+                //newticket.TicketTime = Convert.ToDateTime(setupOptions.Tag);
+            }
+
+            // store the variable for the current time. timestamp?
             DateTime currentTime = DateTime.Now;
 
             //need to add in a timer in order to refresh the text property of the thing
-
             System.Timers.Timer RefreshTimer = new System.Timers.Timer();
-          
             RefreshTimer.Interval = 5000;
             RefreshTimer.Enabled = true;
 
@@ -32,12 +42,7 @@ namespace Project_12_2
             this.Text = ShortTime;
         }
 
-
-        private void LoadOptions(object sender, EventArgs e)
-    {
-        
-    }
-
+        // exit button click event 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close(); 
@@ -47,16 +52,17 @@ namespace Project_12_2
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
             Ticket newTicket = new Ticket(); 
-            newTicket =
+            //newTicket =
+
+            //todo create a new ticket from Tag
         }
 
+        // test this out a couple of times 
         private void btnOptions_Click(object sender, EventArgs e)
         {
             frmOptions Options = new frmOptions();
-            Options.Visible = true; 
-            
+            Options.ShowDialog();
+            this.Close(); 
         }
-
-
     }
 }
