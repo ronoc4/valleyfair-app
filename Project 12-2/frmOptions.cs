@@ -19,9 +19,9 @@ namespace Project_12_2
 
             // Start and end times for the form
             DateTime timeNow = DateTime.Now;
+            DateTime timeEnd = DateTime.Now.AddHours(4);
             dateTimePickerStart.Value = timeNow;
-            dateTimePickerEnd.Value = timeNow.AddHours(4);
-           
+            dateTimePickerEnd.Value = timeEnd;
            
         }
 
@@ -36,13 +36,6 @@ namespace Project_12_2
 
               IsPresent(txtGuestWindow, "Guests Per Window") &&
               IsDecimal(txtGuestWindow, "Guests Per Window") &&
-//need to add IsTime instead of IsDecimal
-//              IsPresent(txtStartTime, "Start time") &&
-//              IsDecimal(txtStartTime, "Start time") &&
-////need to add IsTime instead of IsDecimal
-//              IsPresent(txtEndTime, "End time") &&
-//              IsDecimal(txtEndTime, "End time") &&
-
               IsPresent(txtFirstTicket, "First ticket number") &&
               IsDecimal(txtFirstTicket, "First ticket number"); 
         }
@@ -73,13 +66,12 @@ namespace Project_12_2
             return true;
         }
 
-//        public bool IsTime(
+
         private void btnOptionsOK_Click(object sender, EventArgs e)
         {
-            if (IsValidData())
-            {
+            //Main form = new Main();
+            //form.ShowDialog();
 
-            }
         }
     }
 
