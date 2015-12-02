@@ -11,15 +11,17 @@ namespace Project_12_2
         // every ticket needs a ticket number
         private int ticketNumber;
         // time the ticket was issued. 
-        private DateTime ticketTime;
+        private string ticketTime;
 
+        private List<string> settings;
 
         public Ticket()
         {
+            
         }
 
         // what a ticket should consist of 
-        public Ticket(int ticketNumber, DateTime ticketTime)
+        public Ticket(int ticketNumber, string ticketTime)
         {
             this.TicketNumber = ticketNumber;
             this.TicketTime = ticketTime;
@@ -39,7 +41,8 @@ namespace Project_12_2
             }
 
 
-        public DateTime TicketTime
+        // switching back and forth between a string and a dateTime. still need to determine which one will be better. 
+        public string TicketTime
         {
             get
             {
@@ -51,10 +54,25 @@ namespace Project_12_2
             }
         }
 
+        public List<string> GetSettings
+        { 
+           get
+            {
+                return settings; 
+            }
+            set
+            {
+                settings.Add(ticketTime); 
+                settings.Add(ticketNumber.ToString());
+                settings = value; 
+            }
 
-        public string nextTicketNumber(string sep)
+        }
+
+
+        public string nextTicketNumber()
         {
-            return ( "Ticket" + TicketNumber.ToString() +":" + sep +  TicketTime.ToString());
+            return ( "Ticket" + TicketNumber.ToString() +":" + TicketTime.ToString());
         }
     }
 }

@@ -10,38 +10,30 @@ using System.Windows.Forms;
 
 namespace Project_12_2
 {
-    public partial class Form1 : Form 
-       
+    public partial class Form1 : Form   
     {
-
         public Form1()
         {
 
             InitializeComponent();
-            
-            // Form Options is the 1st screen that loads. 
-            frmOptions setupOptions = new frmOptions();
-            Ticket newticket = new Ticket();  
-            DialogResult confirmedSetup = setupOptions.ShowDialog();
-            if (confirmedSetup == DialogResult.OK)
             {
-                listBoxTicketQueueList.Items.Add(newticket.nextTicketNumber(""));
-                //newticket.TicketNumber = Convert.ToUInt16(setupOptions.Tag);
-                //newticket.TicketTime = Convert.ToDateTime(setupOptions.Tag);
+            
+           //     ReadSelectionFromOptionsForm(); 
+                // timer used for timestamp and testing. 
+                DateTime currentTime = DateTime.Now;
+
+                //need to add in a timer in order to refresh the text property of the thing
+                System.Timers.Timer RefreshTimer = new System.Timers.Timer();
+                RefreshTimer.Interval = 5000;
+                RefreshTimer.Enabled = true;
+
+
+                string ShortTime = currentTime.ToLongTimeString();
+                this.Text = ShortTime;
             }
 
-            // store the variable for the current time. timestamp?
-            DateTime currentTime = DateTime.Now;
-
-            //need to add in a timer in order to refresh the text property of the thing
-            System.Timers.Timer RefreshTimer = new System.Timers.Timer();
-            RefreshTimer.Interval = 5000;
-            RefreshTimer.Enabled = true;
-
-            string ShortTime = currentTime.ToLongTimeString();
-            this.Text = ShortTime;
         }
-
+      
         // exit button click event 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -51,7 +43,7 @@ namespace Project_12_2
         // this button click adds a new ticket based on the information from the options window 
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
-            Ticket newTicket = new Ticket(); 
+           // Ticket newTicket = new Ticket(); 
             //newTicket =
 
             //todo create a new ticket from Tag
@@ -62,7 +54,22 @@ namespace Project_12_2
         {
             frmOptions Options = new frmOptions();
             Options.ShowDialog();
-            this.Close(); 
+            this.Hide(); 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            frmOptions Options = new frmOptions();
+            Form1 f1 = new Form1();
+            f1.Tag = Options.Tag; 
+            Ticket t = new Ticket();
+            DialogResult optionsSelection = Options.DialogResult;
+            if (optionsSelection == DialogResult.Cancel)
+            {
+              
+            }
+            listBoxTicketQueueList.Items.Add(t); 
+        }
+
     }
 }

@@ -15,18 +15,6 @@ namespace Project_12_2
         public frmOptions()
         {
             InitializeComponent();
-            //  MessageBox.Show("All current tickets will be deleted");
-
-            //      frmOptions Setup = new frmOptions();
-            //    Setup.Tag = new Ticket();
-
-            //           Setup.Enabled = true; 
-            //    Setup.ShowDialog();
-
-            //         Form1 ticketQueue = new Form1(); 
-
-            // create a tag for the each options selected 
-            //DialogResult setupConfirmed = 
 
             DateTime timeNow = DateTime.Now;
             DateTime timePlusFour = timeNow.AddHours(4);
@@ -34,14 +22,26 @@ namespace Project_12_2
             string defaultOpen = timeNow.ToLongTimeString();
             string defaultClose = timePlusFour.ToLongTimeString();
 
+            // sets the starting values on the date time picker. 
+            dateTimePickerStartTime.Value = DateTime.Now.AddSeconds(15);
+            dateTimePickerEndTime.Value = DateTime.Now.AddHours(4);
+            txtGuestWindow.Text = "5";
 
-            //    dateTimePickerStartTime.Value = DateTime.Now.AddSeconds(15);
-            //  dateTimePickerEndTime.Value = DateTime.Now.AddHours(4);
+            this.ShowDialog();
+            if (this.DialogResult.Equals(DialogResult.Cancel))
+            {
+                
+                    List<string> infoFromOptionsFrm = new List<string>();
+                    infoFromOptionsFrm.Add(txtFirstTicket.Text);
+                    infoFromOptionsFrm.Add(dateTimePickerStartTime.Value.ToLongDateString());
+                    this.Tag.Equals(infoFromOptionsFrm);
+                    
+            }
 
         }
 
         // move validation to its own static class
-        #region Validation 
+        #region Validation
         public bool IsValidData()
         {
             return
@@ -125,21 +125,21 @@ namespace Project_12_2
         // when this button is clicked check and see if data entered is valid 
         private void btnOptionsOK_Click(object sender, EventArgs e)
         {
-            // todo put arguments in to actually check
-            //            if (IsValidData())
-            //          {
-            this.DialogResult = DialogResult.OK;
-            {
-                // instantiate a new ticket item. 
-                Ticket newticket = new Ticket();
 
-                //todo pickup from here. 
-                newticket.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
-                newticket.TicketTime = dateTimePickerStartTime.Value;
+            // when ok button is clicked record selection and pass it to the next form 
+            Ticket t = new Ticket(); 
+            // maybe try and store this in a dictionary. 
+            t.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
+            t.TicketTime =  Convert.ToDateTime(dateTimePickerStartTime.Value).ToLongDateString();
+           // t = (this.TicketNumber, this.TicketTime); 
+            this.Tag = t;
 
-                this.Tag = newticket;
-                this.Close();
-            }
-        }
+            Form1 f1 = new Form1();
+            f1.Tag = this.Tag;
+            MessageBox.Show(f1.Tag.ToString());
+            this.Close();
+            //// todo put arguments in to actually check
+            ////            if (IsValidData())
+}
     }
 }
