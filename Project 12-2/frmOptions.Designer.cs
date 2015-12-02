@@ -35,10 +35,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMinWindow = new System.Windows.Forms.TextBox();
             this.txtGuestWindow = new System.Windows.Forms.TextBox();
-            this.txtStartTime = new System.Windows.Forms.TextBox();
-            this.txtEndTime = new System.Windows.Forms.TextBox();
             this.txtFirstTicket = new System.Windows.Forms.TextBox();
             this.btnOptionsOK = new System.Windows.Forms.Button();
+            this.numericUpDownStartTime = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownEndTime = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndTime)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,22 +106,6 @@
             this.txtGuestWindow.Tag = "f";
             this.txtGuestWindow.Text = "5";
             // 
-            // txtStartTime
-            // 
-            this.txtStartTime.Location = new System.Drawing.Point(123, 66);
-            this.txtStartTime.Name = "txtStartTime";
-            this.txtStartTime.Size = new System.Drawing.Size(100, 20);
-            this.txtStartTime.TabIndex = 4;
-            this.txtStartTime.Tag = "StartTime";
-            // 
-            // txtEndTime
-            // 
-            this.txtEndTime.Location = new System.Drawing.Point(123, 92);
-            this.txtEndTime.Name = "txtEndTime";
-            this.txtEndTime.Size = new System.Drawing.Size(100, 20);
-            this.txtEndTime.TabIndex = 5;
-            this.txtEndTime.Tag = "EndTime";
-            // 
             // txtFirstTicket
             // 
             this.txtFirstTicket.Location = new System.Drawing.Point(123, 118);
@@ -131,7 +117,7 @@
             // 
             // btnOptionsOK
             // 
-            this.btnOptionsOK.Location = new System.Drawing.Point(135, 161);
+            this.btnOptionsOK.Location = new System.Drawing.Point(135, 159);
             this.btnOptionsOK.Name = "btnOptionsOK";
             this.btnOptionsOK.Size = new System.Drawing.Size(75, 23);
             this.btnOptionsOK.TabIndex = 7;
@@ -139,15 +125,29 @@
             this.btnOptionsOK.UseVisualStyleBackColor = true;
             this.btnOptionsOK.Click += new System.EventHandler(this.btnOptionsOK_Click);
             // 
+            // numericUpDownStartTime
+            // 
+            this.numericUpDownStartTime.Location = new System.Drawing.Point(123, 69);
+            this.numericUpDownStartTime.Name = "numericUpDownStartTime";
+            this.numericUpDownStartTime.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownStartTime.TabIndex = 8;
+            // 
+            // numericUpDownEndTime
+            // 
+            this.numericUpDownEndTime.Location = new System.Drawing.Point(123, 92);
+            this.numericUpDownEndTime.Name = "numericUpDownEndTime";
+            this.numericUpDownEndTime.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownEndTime.TabIndex = 9;
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(235, 196);
+            this.Controls.Add(this.numericUpDownEndTime);
+            this.Controls.Add(this.numericUpDownStartTime);
             this.Controls.Add(this.btnOptionsOK);
             this.Controls.Add(this.txtFirstTicket);
-            this.Controls.Add(this.txtEndTime);
-            this.Controls.Add(this.txtStartTime);
             this.Controls.Add(this.txtGuestWindow);
             this.Controls.Add(this.txtMinWindow);
             this.Controls.Add(this.label5);
@@ -157,6 +157,8 @@
             this.Controls.Add(this.label1);
             this.Name = "frmOptions";
             this.Text = "Options";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,9 +173,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMinWindow;
         private System.Windows.Forms.TextBox txtGuestWindow;
-        private System.Windows.Forms.TextBox txtStartTime;
-        private System.Windows.Forms.TextBox txtEndTime;
         private System.Windows.Forms.TextBox txtFirstTicket;
         private System.Windows.Forms.Button btnOptionsOK;
+        private System.Windows.Forms.NumericUpDown numericUpDownStartTime;
+        private System.Windows.Forms.NumericUpDown numericUpDownEndTime;
     }
 }

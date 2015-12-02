@@ -57,6 +57,17 @@ namespace Project_12_2
         
     }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
+
+        // this button click adds a new ticket based on the information from the options window 
+        private void btnIssueTicket_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

@@ -24,8 +24,11 @@ namespace Project_12_2
             string defaultClose = timePlusFour.ToLongTimeString();
 
 
-            txtStartTime.Text = defaultOpen;
-            txtEndTime.Text = defaultClose;
+            numericUpDownStartTime.Value.Equals(defaultOpen);
+            numericUpDownEndTime.Value.Equals(defaultClose); 
+           
+            //txtStartTime.Text = defaultOpen;
+            //txtEndTime.Text = defaultClose;
             
         }
 
@@ -40,10 +43,12 @@ namespace Project_12_2
 
               IsPresent(txtGuestWindow, "Guests Per Window") &&
               IsDecimal(txtGuestWindow, "Guests Per Window") &&
-//need to add IsTime instead of IsDecimal
+
+              //need to add IsTime instead of IsDecimal
               IsPresent(txtStartTime, "Start time") &&
               IsDecimal(txtStartTime, "Start time") &&
-//need to add IsTime instead of IsDecimal
+
+              //need to add IsTime instead of IsDecimal
               IsPresent(txtEndTime, "End time") &&
               IsDecimal(txtEndTime, "End time") &&
 
