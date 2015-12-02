@@ -77,7 +77,11 @@ namespace Project_12_2
             return true;
         }
 
-//        public bool IsTime(
+   //     public bool IsTime(TextBox textbox, string name)
+     //   {
+            
+     //   }
+
         private void btnOptionsOK_Click(object sender, EventArgs e)
         {
             if (IsValidData())
@@ -85,6 +89,10 @@ namespace Project_12_2
 
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+                    }
     }
 
 }

@@ -24,8 +24,7 @@ namespace Project_12_2
             //need to add in a timer in order to refresh the text property of the thing
 
             System.Timers.Timer RefreshTimer = new System.Timers.Timer();
-          
-            RefreshTimer.Interval = 5000;
+            //RefreshTimer.Interval = 1000;
             RefreshTimer.Enabled = true;
 
 
