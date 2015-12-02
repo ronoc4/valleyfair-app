@@ -25,6 +25,11 @@ namespace Project_12_2
             this.Text = Convert.ToString(currDateTime);
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
 
         
