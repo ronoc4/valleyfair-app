@@ -12,13 +12,18 @@ namespace Project_12_2
         private int ticketNumber;
         // time the ticket was issued. 
         private string ticketTime;
+   //     private Dictionary<int, string> dictionaryTest; 
+       
 
-        private List<string> settings;
-
+        // trying to get this ticket to build a ticket in a key value pair 
         public Ticket()
         {
-            
         }
+        //public Ticket(Dictionary<int, string> dT ) //dt stands for dictionary test obj
+        //{
+        //    this.ticketNumber = dT.Keys[]; 
+        //    this.ticketTime = dT.Values[]; 
+        //}
 
         // what a ticket should consist of 
         public Ticket(int ticketNumber, string ticketTime)
@@ -54,25 +59,23 @@ namespace Project_12_2
             }
         }
 
-        public List<string> GetSettings
-        { 
-           get
-            {
-                return settings; 
-            }
-            set
-            {
-                settings.Add(ticketTime); 
-                settings.Add(ticketNumber.ToString());
-                settings = value; 
-            }
-
-        }
-
+        //public Dictionary<int, string> StoreTicketSettings()
+        //{
+        //    get
+        //    {
+        //        return dictionaryTest; 
+        //    }
+        //    set
+        //    {
+               
+        //        dictionaryTest.Add(ticketNumber, ticketTime); 
+        //    }
+            
+        //}
 
         public string nextTicketNumber()
         {
-            return ( "Ticket" + TicketNumber.ToString() +":" + TicketTime.ToString());
+            return ( "Ticket" + TicketNumber.ToString() +": Time in : " + TicketTime.ToString());
         }
     }
 }

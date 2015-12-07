@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace Project_12_2
 {
-    public partial class Form1 : Form   
+    public partial class Form1 : Form
     {
+
         public Form1()
         {
 
             InitializeComponent();
             {
-            
-           //     ReadSelectionFromOptionsForm(); 
+
+
                 // timer used for timestamp and testing. 
                 DateTime currentTime = DateTime.Now;
 
@@ -26,50 +27,54 @@ namespace Project_12_2
                 System.Timers.Timer RefreshTimer = new System.Timers.Timer();
                 RefreshTimer.Interval = 5000;
                 RefreshTimer.Enabled = true;
-
-
                 string ShortTime = currentTime.ToLongTimeString();
                 this.Text = ShortTime;
+
             }
 
         }
-      
+
         // exit button click event 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         // this button click adds a new ticket based on the information from the options window 
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
-           // Ticket newTicket = new Ticket(); 
-            //newTicket =
-
-            //todo create a new ticket from Tag
+            // add another ticket to the ticket box based on the objects in the box and the starting ticket number, and also map the time to the 
         }
 
         // test this out a couple of times 
         private void btnOptions_Click(object sender, EventArgs e)
         {
             frmOptions Options = new frmOptions();
-            Options.ShowDialog();
-            this.Hide(); 
+            Options.Show();
+            this.Hide();
         }
 
+        // when this form loads try and load the tagged property 
         private void Form1_Load(object sender, EventArgs e)
         {
-            frmOptions Options = new frmOptions();
-            Form1 f1 = new Form1();
-            f1.Tag = Options.Tag; 
-            Ticket t = new Ticket();
-            DialogResult optionsSelection = Options.DialogResult;
-            if (optionsSelection == DialogResult.Cancel)
+            Ticket t2 = new Ticket();
+          
+            
+            t2 = (Ticket)this.Tag;
+            if (t2 == null)
             {
-              
+                MessageBox.Show("Could not cast value. Check your code and try again", "Error");
             }
-            listBoxTicketQueueList.Items.Add(t); 
-        }
+            else 
+            {
 
+                listBoxTicketQueueList.Items.Add(t2.nextTicketNumber().ToString());
+                lblOutsandingTicketTotal.Text = (listBoxTicketQueueList.Items.Count).ToString();
+
+                //todo setup the list to inherit a list from the Ticket class? 
+                
+                // loop over the list and try to read the time property for the  
+            }
+        }
     }
 }
