@@ -43,6 +43,12 @@ namespace Project_12_2
         // this button click adds a new ticket based on the information from the options window 
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
+            Ticket t3 = new Ticket();
+            t3.TicketNumber = 2;
+            t3.TicketNumber += 1;
+            t3.TicketTime = DateTime.Now.AddMinutes(5).ToString();
+
+            listBoxTicketQueueList.Items.Add(t3.nextTicketNumber().ToString());
             // add another ticket to the ticket box based on the objects in the box and the starting ticket number, and also map the time to the 
         }
 
@@ -64,6 +70,7 @@ namespace Project_12_2
             if (t2 == null)
             {
                 MessageBox.Show("Could not cast value. Check your code and try again", "Error");
+                
             }
             else 
             {
