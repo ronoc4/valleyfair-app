@@ -44,12 +44,21 @@ namespace Project_12_2
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
             Ticket t3 = new Ticket();
-            t3.TicketNumber = 2;
+
+            //add in from tag the first ticket and accumulate
+            t3.TicketNumber = 0 ;
             t3.TicketNumber += 1;
-            t3.TicketTime = DateTime.Now.AddMinutes(5).ToString();
+           // t3.TicketTime = DateTime.Now.AddMinutes(5).ToString();
 
             listBoxTicketQueueList.Items.Add(t3.nextTicketNumber().ToString());
             // add another ticket to the ticket box based on the objects in the box and the starting ticket number, and also map the time to the 
+
+            //number of outstanding tickets
+            lblOutsandingTicketTotal.Text = listBoxTicketQueueList.Items.Count.ToString();
+            
+            //todo change label which people may now enter- consider moving
+            
+            
         }
 
         // test this out a couple of times 
@@ -59,6 +68,7 @@ namespace Project_12_2
             Options.Show();
             this.Hide();
         }
+
 
         // when this form loads try and load the tagged property 
         private void Form1_Load(object sender, EventArgs e)

@@ -137,6 +137,7 @@
             this.dateTimePickerStartTime.Name = "dateTimePickerStartTime";
             this.dateTimePickerStartTime.Size = new System.Drawing.Size(100, 20);
             this.dateTimePickerStartTime.TabIndex = 8;
+            this.dateTimePickerStartTime.Tag = "startTimeTicker";
             // 
             // frmOptions
             // 
