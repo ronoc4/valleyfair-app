@@ -18,18 +18,6 @@ namespace Project_12_2
 
             InitializeComponent();
             {
-
-
-                // timer used for timestamp and testing. 
-                DateTime currentTime = DateTime.Now;
-
-                //need to add in a timer in order to refresh the text property of the thing
-                System.Timers.Timer RefreshTimer = new System.Timers.Timer();
-                RefreshTimer.Interval = 5000;
-                RefreshTimer.Enabled = true;
-                string ShortTime = currentTime.ToLongTimeString();
-                this.Text = ShortTime;
-
             }
 
         }
@@ -43,13 +31,19 @@ namespace Project_12_2
         // this button click adds a new ticket based on the information from the options window 
         private void btnIssueTicket_Click(object sender, EventArgs e)
         {
-            Ticket t3 = new Ticket();
-            t3.TicketNumber = 2;
-            t3.TicketNumber += 1;
-            t3.TicketTime = DateTime.Now.AddMinutes(5).ToString();
-
-            listBoxTicketQueueList.Items.Add(t3.nextTicketNumber().ToString());
-            // add another ticket to the ticket box based on the objects in the box and the starting ticket number, and also map the time to the 
+            
+                Ticket t3 = new Ticket();
+                t3.TicketNumber = 2;
+                t3.TicketNumber += 1;
+                t3.TicketTime = DateTime.Now.AddMinutes(5).ToLongTimeString();
+            
+                //Add new ticket
+                listBoxTicketQueueList.Items.Add(t3.nextTicketNumber().ToString());
+                //Increment total tickets
+                lblOutsandingTicketTotal.Text = listBoxTicketQueueList.Items.Count.ToString();
+                //Show time in label
+                lblTimeofEntry.Text = t3.TicketTime.ToString();
+            
         }
 
         // test this out a couple of times 
@@ -77,16 +71,20 @@ namespace Project_12_2
 
                 listBoxTicketQueueList.Items.Add(t2.nextTicketNumber().ToString());
                 lblOutsandingTicketTotal.Text = (listBoxTicketQueueList.Items.Count).ToString();
-
+                lblTimeofEntry.Text = DateTime.Now.AddMinutes(5).ToLongTimeString();
                 //todo setup the list to inherit a list from the Ticket class? 
                 
                 // loop over the list and try to read the time property for the  
             }
         }
 
+        //Load form time ticker
         private void timeNowForm(object sender, EventArgs e)
         {
-            DateTime currentTime = DateTime.Now;
+
+            DateTime ShortTime2 = DateTime.Now;
+            string timeNow = ShortTime2.ToLongTimeString();
+            this.Text = timeNow.ToString();
         }
     }
 }

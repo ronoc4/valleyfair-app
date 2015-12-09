@@ -68,8 +68,8 @@ namespace Project_12_2
                 Form1 f1 = new Form1();
                 f1.Tag = this.Tag;
 
-                this.Hide();
-                f1.Show();
+                f1.ShowDialog();
+                this.Close();
             }
         }
     }
