@@ -13,7 +13,9 @@ namespace Project_12_2
         // time the ticket was issued. 
         private string ticketTime;
    //     private Dictionary<int, string> dictionaryTest; 
-       
+
+		private DateTime time1;
+		private DateTime time2; 
 
         // trying to get this ticket to build a ticket in a key value pair 
         public Ticket()
@@ -44,7 +46,18 @@ namespace Project_12_2
                     ticketNumber = value; 
                 }
             }
+		
+		public DateTime Timer1
+		{
+			get
+			{
+				return time1;
+			}
+			set
+			{
 
+			}
+		}
 
         // switching back and forth between a string and a dateTime. still need to determine which one will be better. 
         public string TicketTime
