@@ -83,5 +83,10 @@ namespace Project_12_2
                 // loop over the list and try to read the time property for the  
             }
         }
+
+        private void timeNowForm(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+        }
     }
 }
