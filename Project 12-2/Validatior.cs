@@ -34,7 +34,7 @@ namespace Project_12_2
            }
        }
   
-       //todo rewrite this method 
+       
         public static bool IsInt(TextBox textbox)
         {
             //int number = 0;

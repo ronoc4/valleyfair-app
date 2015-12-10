@@ -19,14 +19,14 @@ namespace Project_12_2
             // call the method to set the initial options settings 
             initializeDisplaySettings();
 
-            this.Show();
+//            this.Show();
         }
 
         
         private void initializeDisplaySettings()
         {
             // Load Options form on open 
-            //MessageBox.Show("This is test2"); 
+           
             DateTime timeNow = DateTime.Now;
             DateTime timePlusFour = timeNow.AddHours(4);
 
@@ -37,6 +37,7 @@ namespace Project_12_2
             dateTimePickerStartTime.Value = DateTime.Now.AddSeconds(15);
             dateTimePickerEndTime.Value = DateTime.Now.AddHours(4);
             txtGuestWindow.Text = "5";
+
         }
 
         public bool IsValidData()
@@ -57,18 +58,26 @@ namespace Project_12_2
             // this method checks all of the inputs to make sure they are valid
             if (IsValidData() == true)
             {
-                // when ok button is clicked record selection and pass it to the next form 
+                // record selection and pass it to the next form 
                 Ticket t = new Ticket();
-                // maybe try and store this in a dictionary. 
+                
+				// set ticket property values
                 t.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
                 t.TicketTime = Convert.ToDateTime(dateTimePickerStartTime.Value).ToLongDateString();
-                // t = (this.TicketNumber, this.TicketTime); 
+                
+				// this instance of this options form's Tag can be set equal to the ticket object type
                 this.Tag = t;
 
+				// prep the form1 
                 Form1 f1 = new Form1();
+
+				// set form1's tag property equal to this tag
                 f1.Tag = this.Tag;
 
+				// show the next form 
                 f1.ShowDialog();
+
+				//close this one
                 this.Close();
             }
         }
