@@ -11,20 +11,26 @@ namespace Project_12_2
 		// every ticket needs a ticket number
 		private int ticketNumber;
 		// time the ticket was issued. 
-		private string ticketTime;
-   //     private Dictionary<int, string> dictionaryTest; 
+		private DateTime ticketTime;
 
-		//add a value for the end time of tickets. This will be the upper limit of the tickets. 
-		// This value will be put into a method that is checking every time a tick happens. to make sure that a ticket isn't issued after the max time. 
+		// ticketlimit will be equal to guests per window. 
+		private int ticketLimit;
 
-		// trying to get this ticket to build a ticket in a key value pair 
+		//add a value for the end time of tickets. This will be the upper limit of the tickets that are allowed in the listbox
+		public int TicketLimit
+		{
+			get { return ticketLimit; }
+			set { ticketLimit = value; }
+		}// This value will be put into a method that is checking every time a tick happens. to make sure that a ticket isn't issued after the max time. 
+
+		// default contsructor
 		public Ticket()
 		{
 		}
 		
 
 		// what a ticket should consist of -- In Development still 
-		public Ticket(int ticketNumber, string ticketTime)
+		public Ticket(int ticketNumber, DateTime ticketTime)
 		{
 			this.TicketNumber = ticketNumber;
 			this.TicketTime = ticketTime;
@@ -44,7 +50,7 @@ namespace Project_12_2
 			}
 	
 		// switching back and forth between a string and a dateTime. still need to determine which one will be better. 
-		public string TicketTime
+		public DateTime TicketTime
 		{
 			get
 			{
@@ -59,7 +65,7 @@ namespace Project_12_2
 		//todo this is used as an override to string method. 
 		public string nextTicketNumber()
 		{
-			return ( "Ticket" + TicketNumber.ToString() +": Time in : " + TicketTime.ToString()); 
+			return ( "Ticket" + TicketNumber.ToString() +": Time in : " + TicketTime.ToShortTimeString());
 		}
 	}
 }

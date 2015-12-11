@@ -18,7 +18,7 @@ namespace Project_12_2
 
 			InitializeComponent();
 			{
-
+				
 			}
 
 		}
@@ -32,11 +32,12 @@ namespace Project_12_2
 		// this button click adds a new ticket based on the information from the options window 
 		private void btnIssueTicket_Click(object sender, EventArgs e)
 		{
-			
+			// creates a new instance of the ticket class 
 				Ticket t3 = new Ticket();
 
-				t3.TicketNumber = listBoxTicketQueueList.Items.Count + 1; 
-				t3.TicketTime = DateTime.Now.AddMinutes(5).ToLongTimeString();
+			// todo this if for testing purposed. Will need to be fixed. 
+				t3.TicketNumber = listBoxTicketQueueList.Items.Count + 1;
+				t3.TicketTime = DateTime.Now.AddMinutes(5);
 			
 				//Add new ticket
 				listBoxTicketQueueList.Items.Add(t3.nextTicketNumber().ToString());
@@ -45,6 +46,7 @@ namespace Project_12_2
 				//Show time in label
 				lblTimeofEntry.Text = t3.TicketTime.ToString();
 			
+			//todo add the method to check the number of tickets in the listbox to make sure we are not over the limit. 
 		}
 
 		// test this out a couple of times 
@@ -58,6 +60,8 @@ namespace Project_12_2
 		// when this form loads try and load the tagged property 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			//todo maybe try loading into frmOptions first , and moving all of this out of this form load event into the initialize component section. 
+
 			// loads this forms instance of the ticket which recieved from the tag on frmOptions 
 			Ticket t2 = new Ticket();
 			t2 = (Ticket)this.Tag;
@@ -82,7 +86,8 @@ namespace Project_12_2
 
 				//todo setup the list to inherit a list from the Ticket class? 
 				
-				// loop over the list and try to read the time property for the  
+				// loop over the list and try to read the time property for each ticket to check and see if it can enter. 
+
 			}
 		}
 
