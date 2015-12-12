@@ -61,11 +61,27 @@ namespace Project_12_2
 				ticketTime = value;
 			}
 		}
+		 // checks how many tickets can be in the lsit box at once 
+		public bool UpperLimit(Ticket t, int ticketQueueCount)
+		{
+			// if you add this ticket to the list box will it exceed the number allowed in ? 
+
+			// if the listbox count is higher than the limit uhh... don't add it 
+			if(ticketQueueCount + 1 >= t.TicketLimit)
+			{
+				return false;
+
+			}
+			else { return true;  }
+		}
+
 
 		//todo this is used as an override to string method. 
 		public string nextTicketNumber()
 		{
 			return ( "Ticket" + TicketNumber.ToString() +": Time in : " + TicketTime.ToShortTimeString());
 		}
+
+		public TimeSpan TimeIncrement { get; set; }
 	}
 }

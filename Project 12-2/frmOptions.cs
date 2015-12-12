@@ -65,6 +65,7 @@ namespace Project_12_2
 				// set ticket property values
 				t.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
 				t.TicketTime = dateTimePickerStartTime.Value;
+				t.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
 				//t.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
 
 
