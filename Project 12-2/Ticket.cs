@@ -10,11 +10,28 @@ namespace Project_12_2
 	{
 		// every ticket needs a ticket number
 		private int ticketNumber;
+
 		// time the ticket was issued. 
 		private DateTime ticketTime;
 
 		// ticketlimit will be equal to guests per window. 
 		private int ticketLimit;
+
+		// this timeframe is the span of time that is measured 
+		private TimeSpan timeFrame;
+
+		public TimeSpan TimeSpan 
+		{
+			get
+			{
+				return timeFrame; 
+			}
+			set
+			{
+				timeFrame = value;
+			}
+		}
+
 
 		//add a value for the end time of tickets. This will be the upper limit of the tickets that are allowed in the listbox
 		public int TicketLimit
@@ -30,10 +47,15 @@ namespace Project_12_2
 		
 
 		// what a ticket should consist of -- In Development still 
-		public Ticket(int ticketNumber, DateTime ticketTime)
+		public Ticket(int ticketNumber, DateTime ticketTime, int ticketLimit)
 		{
+			// every ticket needs a ticket number 
 			this.TicketNumber = ticketNumber;
+			// date time it was issued 
 			this.TicketTime = ticketTime;
+			// a ticket doesn't need a ticketLimit , but it set in options and carried over to Main form. 
+			this.ticketLimit = ticketLimit; 
+
 		}
 
 		// access the ticket number field. 
@@ -61,6 +83,8 @@ namespace Project_12_2
 				ticketTime = value;
 			}
 		}
+
+
 		 // checks how many tickets can be in the lsit box at once 
 		public bool UpperLimit(Ticket t, int ticketQueueCount)
 		{
@@ -75,6 +99,10 @@ namespace Project_12_2
 			else { return true;  }
 		}
 
+		public TimeSpan SetTimeSpan(int userInput)
+		{
+			this.timeFrame = TimeSpan.Add(userInput).Minutes; 
+		}
 
 		//todo this is used as an override to string method. 
 		public string nextTicketNumber()

@@ -142,7 +142,7 @@ namespace Project_12_2
 
 		//todo method to check the numbers that are avilable to enter. 
 	
-
+		
 	
 
 		//Load form time ticker
