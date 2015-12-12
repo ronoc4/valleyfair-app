@@ -15,84 +15,89 @@ namespace Project_12_2
         public frmOptions()
         {
             InitializeComponent();
-          //  MessageBox.Show("All current tickets will be deleted");
 
+            // call the method to set the initial options settings 
+            initializeDisplaySettings();
+
+            this.Show();
+        }
+
+        
+        private void initializeDisplaySettings()
+        {
+            // Load Options form on open 
+            //MessageBox.Show("This is test2"); 
             DateTime timeNow = DateTime.Now;
             DateTime timePlusFour = timeNow.AddHours(4);
 
             string defaultOpen = timeNow.ToLongTimeString();
             string defaultClose = timePlusFour.ToLongTimeString();
 
-
-            txtStartTime.Text = defaultOpen;
-            txtEndTime.Text = defaultClose;
-            
+            // sets the starting values on the date time picker. 
+            dateTimePickerStartTime.Value = DateTime.Now.AddSeconds(15);
+            dateTimePickerEndTime.Value = DateTime.Now.AddHours(4);
+            txtGuestWindow.Text = "5";
         }
-
-
-
 
         public bool IsValidData()
         {
             return
-              IsPresent(txtMinWindow, "Minutes Per Window") &&
-              IsDecimal(txtMinWindow, "Minutes per Window") &&
+              Validatior.IsPresent(txtMinWindow) &&
+              Validatior.IsInt(txtMinWindow)&&
 
-              IsPresent(txtGuestWindow, "Guests Per Window") &&
-              IsDecimal(txtGuestWindow, "Guests Per Window") &&
-//need to add IsTime instead of IsDecimal
-              IsPresent(txtStartTime, "Start time") &&
-              IsDecimal(txtStartTime, "Start time") &&
-//need to add IsTime instead of IsDecimal
-              IsPresent(txtEndTime, "End time") &&
-              IsDecimal(txtEndTime, "End time") &&
-
-              IsPresent(txtFirstTicket, "First ticket number") &&
-              IsDecimal(txtFirstTicket, "First ticket number"); 
+              Validatior.IsPresent(txtGuestWindow) &&
+              Validatior.IsInt(txtGuestWindow) &&
+              Validatior.IsPresent(txtFirstTicket) &&
+              Validatior.IsInt(txtFirstTicket);
         }
-
-        public bool IsDecimal(TextBox textbox, string name)
-        {
-            decimal number = 0m;
-            if (Decimal.TryParse(textbox.Text, out number))
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show(name + " must be a number.", "Entry Error");
-                textbox.Focus();
-                return false;
-            }
-        }
-
-        public bool IsPresent(TextBox textbox, string name)
-        {
-            if (textbox.Text == "")
-            {
-                MessageBox.Show(name + " is a required field.", "Entry error");
-                textbox.Focus();
-                return false;
-            }
-            return true;
-        }
-
-   //     public bool IsTime(TextBox textbox, string name)
-     //   {
-            
-     //   }
-
+    
+        // when this button is clicked check and see if data entered is valid 
         private void btnOptionsOK_Click(object sender, EventArgs e)
         {
-            if (IsValidData())
+            // this method checks all of the inputs to make sure they are valid
+            if (IsValidData() == true)
             {
+                // when ok button is clicked record selection and pass it to the next form 
+                Ticket t = new Ticket();
+                // maybe try and store this in a dictionary. 
+                t.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
+                t.TicketTime = Convert.ToDateTime(dateTimePickerStartTime.Value).ToLongDateString();
+                // t = (this.TicketNumber, this.TicketTime); 
+
+                /*
+                TicketSlot ts = new TicketSlot();
+                ts.StartTime = t.TicketTime;
+                ts.EndTime = Convert.ToDateTime(dateTimePickerEndTime.Value).ToLongDateString();
+                ts.LengthTime = ;
+                ts.NumIssued = ;
+                */
+
+
+
+                this.Tag = t;
+
+                Form1 f1 = new Form1();
+                f1.Tag = this.Tag;
+
+                this.Hide();
+                f1.Show();
+
+                
+           }
+
+        }
+        public class TimeSlot
+        {
+/*
+            public static void GrabTicketSlot()
+            {
+                System.Collections.Generic.List<string> info = new System.Collections.Generic.List<string>();
+
+
+             //   info.Add(ts.
 
             }
+ */
         }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-                    }
     }
-
 }
