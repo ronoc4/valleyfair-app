@@ -19,8 +19,6 @@ namespace Project_12_2
 			// call the method to set the initial options settings 
 			initializeDisplaySettings();
 
-			this.Show(); 
-
 		}
 
 		
@@ -69,19 +67,23 @@ namespace Project_12_2
 
 
 				// this instance of this options form's Tag can be set equal to the ticket object type
-				this.Tag = t;
+			//	this.Tag = t;
 
 				// prep the form1 
-				Form1 f1 = new Form1();
-
+			//	frmTicketQueue f1 = new frmTicketQueue();
+//
 				// set form1's tag property equal to this tag
-				f1.Tag = this.Tag;
+			//	f1.Tag = this.Tag;
 
 				// show the next form 
-				f1.ShowDialog();
 
-				//close this one
-				this.Close();
+			//	f1.ShowDialog(); 
+				this.DialogResult.Equals(DialogResult.OK);
+				
+			}
+			else
+			{
+				MessageBox.Show("Data was not valid and could not be loaded");
 			}
 		}
 	}
