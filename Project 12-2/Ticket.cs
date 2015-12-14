@@ -99,10 +99,10 @@ namespace Project_12_2
 			else { return true;  }
 		}
 
-		public TimeSpan SetTimeSpan(int userInput)
-		{
-			this.timeFrame = TimeSpan.Add(userInput).Minutes; 
-		}
+		//public TimeSpan SetTimeSpan(int userInput)
+		//{
+		//	this.timeFrame = TimeSpan.Add(userInput).Minutes; 
+		//}
 
 		//todo this is used as an override to string method. 
 		public string nextTicketNumber()

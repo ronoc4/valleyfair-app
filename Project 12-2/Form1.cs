@@ -90,7 +90,7 @@ namespace Project_12_2
 
 				//Show time in label
 				lblTimeofEntry.Text = t3.TicketTime.ToString();
-
+				lblTickets.Text = CustomerNumbersCanEnter(); 
 				//todo add the method to check the number of tickets in the listbox to make sure we are not over the limit. 
 			}
 		}
@@ -142,6 +142,28 @@ namespace Project_12_2
 
 		//todo method to check the numbers that are avilable to enter. 
 	
+		// pass this a list of tickets to check each as a ticket 
+		public string CustomerNumbersCanEnter()
+		{
+			int min = 0;
+			//	Ticket testmin = Ticket(list.ElementAt(0));
+
+			//min= list.IndexOf(0); 
+
+			int max = 5;
+			//  x can enter at a time 
+			//int start = t.TicketLimit;
+			string result =  "(" + min.ToString() + " - " + max.ToString() + ")";
+			return result;
+		}
+			 
+		
+			
+		// so when the timer hits its next postions it can update its label to say that 
+
+		// customer x- x+x can enter  
+
+
 		
 	
 
