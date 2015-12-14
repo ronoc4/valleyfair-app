@@ -17,10 +17,10 @@ namespace Project_12_2
 		// ticketlimit will be equal to guests per window. 
 		private int ticketLimit;
 
-		// this timeframe is the span of time that is measured 
-		private TimeSpan timeFrame;
+		// this will be stored as an int and plugged into a datetime value later to calculate span 
+		private int timeFrame;
 
-		public TimeSpan TimeSpan 
+		public int TimeSpan 
 		{
 			get
 			{
@@ -59,19 +59,19 @@ namespace Project_12_2
 		}
 
 		// access the ticket number field. 
-		public int TicketNumber 
+		public int TicketNumber
 		{
 			get
 			{
 				return ticketNumber;
 			}
-				set
-				{
-					ticketNumber = value; 
-				}
+			set
+			{
+				ticketNumber = value;
 			}
-	
-		// switching back and forth between a string and a dateTime. still need to determine which one will be better. 
+		}
+
+		// starting time for tickets 
 		public DateTime TicketTime
 		{
 			get

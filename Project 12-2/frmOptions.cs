@@ -19,8 +19,6 @@ namespace Project_12_2
 			// call the method to set the initial options settings 
 			initializeDisplaySettings();
 
-			this.Show(); 
-
 		}
 
 		
@@ -84,6 +82,11 @@ namespace Project_12_2
 				//close this one
 				this.Close();
 			}
+		}
+
+		private void frmOptions_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
