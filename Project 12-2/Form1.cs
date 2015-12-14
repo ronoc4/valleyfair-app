@@ -33,7 +33,7 @@ namespace Project_12_2
 		private void btnIssueTicket_Click(object sender, EventArgs e)
 		{
 			// creates a new instance of the ticket class 
-		Ticket t3 = new Ticket();
+			Ticket t3 = new Ticket();
 
 
 			//todo put these into the ticket class to validate over the limit and end of day time. 
@@ -49,17 +49,20 @@ namespace Project_12_2
 			Ticket oldTicket = new Ticket();
 			oldTicket = (Ticket)this.Tag;
 
-			//todo write a method to check and see if the number of tickets in the list is greater than one. The problem here is that 
-			// the ticket is being set to the starting ticket number from the options and only adding one the starting ticket number so it doesn't increase after the 2nd ticket is created.  
-			
 			// increment the ticket + 1
+
+
+			//todo write a method to check and see if the number of tickets in the list is greater than one. The problem here is that 
+			// the ticket is being set to the starting ticket number 
+            //from the options and only adding one the starting ticket number so it doesn't increase after the 2nd ticket is created.  
 			t3.TicketNumber += oldTicket.TicketNumber + 1;
 
 
 			if (listBoxTicketQueueList.Items.Count >= oldTicket.TicketLimit)
 			{
 				OverTheLimit = true; 
-				MessageBox.Show("Cannot add another ticket please wait until the ticket window opens again", "Ticket List Cannot Exceed Queue Limit of " + oldTicket.TicketLimit.ToString());
+				MessageBox.Show("Cannot add another ticket please wait until the ticket window opens again", 
+                    "Ticket List Cannot Exceed Queue Limit of " + oldTicket.TicketLimit.ToString());
 			}
 
 			else if (TimesUpDaysOver.Equals(true))
@@ -67,12 +70,15 @@ namespace Project_12_2
 				MessageBox.Show("Cannot add another ticket because the ride will close before they can ride", "Ride Closing Soon");
 			}
 			// if over the limit let them know another ticket cannot be added 
-
-						// check the time to see if it falls before the end of the day. If it does let the user know that prior to trying to add the ticket because it won't work 
+			// check the time to see if it falls before the end of the day. 
+            //If it does let the user know that prior to trying to add the ticket because it won't work 
 
 			else
 			{
-				
+				//try 		
+				// listcheckr 
+
+
 				// if we were to add another ticket to the listbox would it be less than or equal to the max
 
 				// add the chosen option for the ticket time 
@@ -86,7 +92,7 @@ namespace Project_12_2
 
 				//Show time in label
 				lblTimeofEntry.Text = t3.TicketTime.ToString();
-				lblTickets.Text = CustomerNumbersCanEnter(t3); 
+
 				//todo add the method to check the number of tickets in the listbox to make sure we are not over the limit. 
 			}
 		}
@@ -95,100 +101,51 @@ namespace Project_12_2
 		{
 			frmOptions Options = new frmOptions();
 			Options.Show();
-			this.Close(); 
+			this.Hide();
 		}
 
 		// when this form loads try and load the tagged property 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			frmOptions Setup = new frmOptions();
-
-			this.Tag = Setup.DialogResult;
-			Setup.ShowDialog();
-
+			
 			//todo try loading an instance of frmOptions first with a show dialog , and then make the dialog result equal to a tag, 
 			// then convert the tag to a ticket 
-
+			
 			//todo maybe try loading into frmOptions first , and moving all of this out of this form load event into the initialize component section. 
 
 			// loads this forms instance of the ticket which recieved from the tag on frmOptions 
 			Ticket t2 = new Ticket();
 			t2 = (Ticket)this.Tag;
-
+			
 			if (t2 == null)
 			{
 				MessageBox.Show("Could not cast value. Check your code and try again", "Error");
-
+				
 			}
-			else
+			else 
 			{
 				//add the item to the ticket list 
 				listBoxTicketQueueList.Items.Add(t2.nextTicketNumber().ToString());
-
+				
 				//this sets the text on the number of tickets in the list 
 				lblOutsandingTicketTotal.Text = (listBoxTicketQueueList.Items.Count).ToString();
 
 				//this for testing. For now it diplsays 5 minutes, but it not set equal to the options wait time. 
-
+				
 				//todo tie this into the ticket timewindow. also write this into the class as the timeout value. 
 				lblTimeofEntry.Text = DateTime.Now.AddMinutes(5).ToLongTimeString();
 
 				//todo setup the list to inherit a list from the Ticket class? 
-
+				
 				// loop over the list and try to read the time property for each ticket to check and see if it can enter. 
 
 			}
 		}
-	
+
 		//todo method to check the numbers that are avilable to enter. 
-
-		public void TicketsCanEnterLabelUpdate(List<Ticket> ticketQueue, Ticket orginalTicketSettings)
-		{
-			Ticket lowerendticket = ticketQueue.ElementAt(0);
-			Ticket upperLimit = ticketQueue.ElementAt(orginalTicketSettings.TicketLimit); 
-		// these numbers will tell you which tickets can enter 
-
-			lblTickets.Text = "(" + lowerendticket.TicketNumber.ToString() + " - " + upperLimit.TicketNumber.ToString() + ")";
-		}
-
-
-
-
-		// pass this a list of tickets to check each as a ticket 
- //	   public void CustomerNumbersCanEnter(Ticket t)
- //	   {
- //		   // to get the customer numbers we need to know what the customer range is. So pass that in by passing in the object 
-			
- //		   //t.TicketLimit will be the ticket 
- //				   // accesses the ticket limit property set by the options window. 
- //		   int addThisToListStartingLocation = t.TicketLimit;
-
- //		   // first ticket inthe list can enter is customer in the first spot
-			
- //		   // so we need to extract that ticket number from what I want to be a list of Tickets. 
- //		   int highNum = listBoxTicketQueueList.Items.IndexOf(addThisToListStartingLocation); 
-			
- //// get the first ticket in the list 
-
- //		   int min = 0; 
-			
- //		   //	Ticket testmin = Ticket(list.ElementAt(0));
-
- //		   //min= list.IndexOf(0); 
-
- //		   int max = 5;
- //		   //  x can enter at a time 
- //		   //int start = t.TicketLimit;
- //		   string result =  "(" + min.ToString() + " - " + max.ToString() + ")";
- //		   return result;
- //	   }
-			 
+	
 		
-			
-		// so when the timer hits its next postions it can update its label to say that 
-
-		// customer x- x+x can enter  
-
+	
 
 		//Load form time ticker
 		private void timeNowForm(object sender, EventArgs e)
@@ -198,5 +155,21 @@ namespace Project_12_2
 			string timeNow = ShortTime2.ToLongTimeString();
 			this.Text = timeNow.ToString();
 		}
+
+        //TODO Finish the listbox timer once program is working again
+        //Timer to remove items from list box right now every 30 seconds
+        //Still looking into it
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            for (int i = listBoxTicketQueueList.Items.Count - 1; i > -1; i--)
+            {
+                var exp = (ExpiringItem)listBoxTicketQueueList.Items[i];
+                var timeVisible = DateTime.Now - exp.Added;
+                if (timeVisible.TotalSeconds > 30)
+                    listBoxTicketQueueList.Items.RemoveAt(i);
+            }
+        }
+        
 	}
 }
