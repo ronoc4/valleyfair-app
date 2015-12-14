@@ -90,7 +90,7 @@ namespace Project_12_2
 
 				//Show time in label
 				lblTimeofEntry.Text = t3.TicketTime.ToString();
-				lblTickets.Text = CustomerNumbersCanEnter(); 
+				lblTickets.Text = CustomerNumbersCanEnter(t3); 
 				//todo add the method to check the number of tickets in the listbox to make sure we are not over the limit. 
 			}
 		}
@@ -105,7 +105,11 @@ namespace Project_12_2
 		// when this form loads try and load the tagged property 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			
+			frmOptions Setup = new frmOptions();
+
+			this.Tag = Setup.DialogResult; 
+			Setup.ShowDialog(); 
+
 			//todo try loading an instance of frmOptions first with a show dialog , and then make the dialog result equal to a tag, 
 			// then convert the tag to a ticket 
 			
@@ -143,9 +147,24 @@ namespace Project_12_2
 		//todo method to check the numbers that are avilable to enter. 
 	
 		// pass this a list of tickets to check each as a ticket 
-		public string CustomerNumbersCanEnter()
+		public string CustomerNumbersCanEnter(Ticket t)
 		{
-			int min = 0;
+			// to get the customer numbers we need to know what the customer range is. So pass that in by passing in the object 
+			
+			//t.TicketLimit will be the ticket 
+					// accesses the ticket limit property set by the options window. 
+			int addThisToListStartingLocation = t.TicketLimit;
+
+			// first ticket inthe list can enter is customer in the first spot
+			
+			// so we need to extract that ticket number from what I want to be a list of Tickets. 
+			int highNum = listBoxTicketQueueList.Items.IndexOf(addThisToListStartingLocation); 
+			
+ // get the first ticket in the list 
+
+			int min = 0; 
+			
+
 			//	Ticket testmin = Ticket(list.ElementAt(0));
 
 			//min= list.IndexOf(0); 
