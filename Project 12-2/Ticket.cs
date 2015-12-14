@@ -101,7 +101,7 @@ namespace Project_12_2
 
 		public TimeSpan SetTimeSpan(int userInput)
 		{
-			this.timeFrame = TimeSpan.Add(userInput).Minutes; 
+            return this.timeFrame = TimeSpan.Add(TimeSpan); 
 		}
 
 		//todo this is used as an override to string method. 

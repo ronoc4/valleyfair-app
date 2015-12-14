@@ -41,6 +41,7 @@
             this.btnOptions = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.timerTimeNow = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBoxGuestTicketEnter.SuspendLayout();
             this.groupBoxTicketAvailibilityDisplay.SuspendLayout();
             this.SuspendLayout();
@@ -168,6 +169,10 @@
             this.timerTimeNow.Interval = 1000;
             this.timerTimeNow.Tick += new System.EventHandler(this.timeNowForm);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnIssueTicket;
@@ -205,6 +210,7 @@
         private System.Windows.Forms.Button btnOptions;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Timer timerTimeNow;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

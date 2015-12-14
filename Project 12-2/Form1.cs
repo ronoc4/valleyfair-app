@@ -53,14 +53,16 @@ namespace Project_12_2
 
 
 			//todo write a method to check and see if the number of tickets in the list is greater than one. The problem here is that 
-			// the ticket is being set to the starting ticket number from the options and only adding one the starting ticket number so it doesn't increase after the 2nd ticket is created.  
+			// the ticket is being set to the starting ticket number 
+            //from the options and only adding one the starting ticket number so it doesn't increase after the 2nd ticket is created.  
 			t3.TicketNumber += oldTicket.TicketNumber + 1;
 
 
 			if (listBoxTicketQueueList.Items.Count >= oldTicket.TicketLimit)
 			{
 				OverTheLimit = true; 
-				MessageBox.Show("Cannot add another ticket please wait until the ticket window opens again", "Ticket List Cannot Exceed Queue Limit of " + oldTicket.TicketLimit.ToString());
+				MessageBox.Show("Cannot add another ticket please wait until the ticket window opens again", 
+                    "Ticket List Cannot Exceed Queue Limit of " + oldTicket.TicketLimit.ToString());
 			}
 
 			else if (TimesUpDaysOver.Equals(true))
@@ -68,8 +70,8 @@ namespace Project_12_2
 				MessageBox.Show("Cannot add another ticket because the ride will close before they can ride", "Ride Closing Soon");
 			}
 			// if over the limit let them know another ticket cannot be added 
-
-						// check the time to see if it falls before the end of the day. If it does let the user know that prior to trying to add the ticket because it won't work 
+			// check the time to see if it falls before the end of the day. 
+            //If it does let the user know that prior to trying to add the ticket because it won't work 
 
 			else
 			{
@@ -153,5 +155,21 @@ namespace Project_12_2
 			string timeNow = ShortTime2.ToLongTimeString();
 			this.Text = timeNow.ToString();
 		}
+
+        //TODO Finish the listbox timer once program is working again
+        //Timer to remove items from list box right now every 30 seconds
+        //Still looking into it
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            for (int i = listBoxTicketQueueList.Items.Count - 1; i > -1; i--)
+            {
+                var exp = (ExpiringItem)listBoxTicketQueueList.Items[i];
+                var timeVisible = DateTime.Now - exp.Added;
+                if (timeVisible.TotalSeconds > 30)
+                    listBoxTicketQueueList.Items.RemoveAt(i);
+            }
+        }
+        
 	}
 }
