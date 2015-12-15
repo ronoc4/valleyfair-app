@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_12_2
 {
-	class Ticket
+	public class Ticket
 	{
 		// every ticket needs a ticket number
 		private int ticketNumber;
@@ -99,15 +99,11 @@ namespace Project_12_2
 			else { return true;  }
 		}
 
-		//public TimeSpan SetTimeSpan(int userInput)
-		//{
-		//	this.timeFrame = TimeSpan.Add(userInput).Minutes; 
-		//}
-
+	
 		//todo this is used as an override to string method. 
 		public string nextTicketNumber()
 		{
-			return ( "Ticket" + TicketNumber.ToString() +": Time in : " + TicketTime.ToShortTimeString());
+			return ( "Ticket" + this.TicketNumber.ToString() +": Time in : " + this.TicketTime.ToShortTimeString());
 		}
 
 		public TimeSpan TimeIncrement { get; set; }

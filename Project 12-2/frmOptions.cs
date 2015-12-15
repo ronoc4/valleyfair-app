@@ -20,12 +20,11 @@ namespace Project_12_2
 			initializeDisplaySettings();
 
 		}
-
 		
 		private void initializeDisplaySettings()
 		{
 			// Load Options form on open 
-		   
+
 			DateTime timeNow = DateTime.Now;
 			DateTime timePlusFour = timeNow.AddHours(4);
 
@@ -36,21 +35,20 @@ namespace Project_12_2
 			dateTimePickerStartTime.Value = DateTime.Now.AddSeconds(15);
 			dateTimePickerEndTime.Value = DateTime.Now.AddHours(4);
 			txtGuestWindow.Text = "5";
-
 		}
 
 		public bool IsValidData()
 		{
 			return
 			  Validatior.IsPresent(txtMinWindow) &&
-			  Validatior.IsInt(txtMinWindow)&&
+			  Validatior.IsInt(txtMinWindow) &&
 
 			  Validatior.IsPresent(txtGuestWindow) &&
 			  Validatior.IsInt(txtGuestWindow) &&
 			  Validatior.IsPresent(txtFirstTicket) &&
 			  Validatior.IsInt(txtFirstTicket);
 		}
-	
+
 		// when this button is clicked check and see if data entered is valid 
 		private void btnOptionsOK_Click(object sender, EventArgs e)
 		{
@@ -58,35 +56,28 @@ namespace Project_12_2
 			if (IsValidData() == true)
 			{
 				// record selection and pass it to the next form 
-				Ticket t = new Ticket();
-				
+				Ticket ticketSettings = new Ticket();
+
 				// set ticket property values
-				t.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
-				t.TicketTime = dateTimePickerStartTime.Value;
-				t.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
+				ticketSettings.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
+				ticketSettings.TicketTime = dateTimePickerStartTime.Value;
+				ticketSettings.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
 				//t.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
 
 
 				// this instance of this options form's Tag can be set equal to the ticket object type
-				this.Tag = t;
-
+				this.Tag = ticketSettings;
+				
 				// prep the form1 
-				Form1 f1 = new Form1();
-
+				frmMain f1 = new frmMain();
+				f1.Tag = ticketSettings; 
 				// set form1's tag property equal to this tag
-				f1.Tag = this.Tag;
+			
 
 				// show the next form 
 				f1.ShowDialog();
-
-				//close this one
-				this.Close();
+				
 			}
-		}
-
-		private void frmOptions_Load(object sender, EventArgs e)
-		{
-
 		}
 	}
 }
