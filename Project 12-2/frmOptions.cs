@@ -76,7 +76,10 @@ namespace Project_12_2
 
 				// show the next form 
 				f1.ShowDialog();
-				
+				if (f1.DialogResult == DialogResult.Cancel)
+				{
+					this.Close(); 
+				}	
 			}
 		}
 	}

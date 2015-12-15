@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace Project_12_2
 {
-    class ExpiringItem
+    class ExpiringItem : Ticket
     {
-        private string text;
-        public ExpiringItem(string text)
-        {
-            this.text = text;
-            this.Added = DateTime.Now;
-        }
-        public DateTime Added { get; private set; }
-        public override string ToString()
-        {
-            return text;
-        }
+		public Ticket expireingTicket;
+
+		private string text;
+		public ExpiringItem(string text)
+		{
+			this.text = text;
+			this.Added = DateTime.Now;
+		}
+		public DateTime Added { get; private set; }
+		public override string ToString()
+		{
+			return text;
+		}
     }
 
 

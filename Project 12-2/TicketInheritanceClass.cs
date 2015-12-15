@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace Project_12_2
 {
-	class TicketInheritanceClass : List<Ticket>
+	class TicketInheritanceClass : Ticket
 	{
+		TicketInheritanceClass ForTheTiime = new TicketInheritanceClass();
 
+		DateTime timer1;
+		DateTime timer2;
+
+		int minsPerWindow; 
+
+		public void Timer1()
+		{
+			this.timer1 = TicketTime;
+
+			
+		}
 	}
 }
 	
