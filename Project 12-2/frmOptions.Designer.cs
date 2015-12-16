@@ -156,7 +156,6 @@
 			this.Controls.Add(this.label1);
 			this.Name = "frmOptions";
 			this.Text = "Options";
-			this.Load += new System.EventHandler(this.frmOptions_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

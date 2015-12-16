@@ -1,6 +1,6 @@
 ﻿namespace Project_12_2
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -50,9 +50,9 @@
 			// 
 			this.groupBoxGuestTicketEnter.Controls.Add(this.lblTickets);
 			this.groupBoxGuestTicketEnter.Location = new System.Drawing.Point(10, 11);
-			this.groupBoxGuestTicketEnter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxGuestTicketEnter.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBoxGuestTicketEnter.Name = "groupBoxGuestTicketEnter";
-			this.groupBoxGuestTicketEnter.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxGuestTicketEnter.Padding = new System.Windows.Forms.Padding(2);
 			this.groupBoxGuestTicketEnter.Size = new System.Drawing.Size(223, 67);
 			this.groupBoxGuestTicketEnter.TabIndex = 0;
 			this.groupBoxGuestTicketEnter.TabStop = false;
@@ -76,9 +76,9 @@
 			this.groupBoxTicketAvailibilityDisplay.Controls.Add(this.label2);
 			this.groupBoxTicketAvailibilityDisplay.Controls.Add(this.label1);
 			this.groupBoxTicketAvailibilityDisplay.Location = new System.Drawing.Point(10, 83);
-			this.groupBoxTicketAvailibilityDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxTicketAvailibilityDisplay.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBoxTicketAvailibilityDisplay.Name = "groupBoxTicketAvailibilityDisplay";
-			this.groupBoxTicketAvailibilityDisplay.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxTicketAvailibilityDisplay.Padding = new System.Windows.Forms.Padding(2);
 			this.groupBoxTicketAvailibilityDisplay.Size = new System.Drawing.Size(223, 139);
 			this.groupBoxTicketAvailibilityDisplay.TabIndex = 1;
 			this.groupBoxTicketAvailibilityDisplay.TabStop = false;
@@ -87,7 +87,7 @@
 			// btnIssueTicket
 			// 
 			this.btnIssueTicket.Location = new System.Drawing.Point(10, 102);
-			this.btnIssueTicket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnIssueTicket.Margin = new System.Windows.Forms.Padding(2);
 			this.btnIssueTicket.Name = "btnIssueTicket";
 			this.btnIssueTicket.Size = new System.Drawing.Size(81, 29);
 			this.btnIssueTicket.TabIndex = 4;
@@ -139,7 +139,7 @@
 			// 
 			this.listBoxTicketQueueList.FormattingEnabled = true;
 			this.listBoxTicketQueueList.Location = new System.Drawing.Point(10, 218);
-			this.listBoxTicketQueueList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.listBoxTicketQueueList.Margin = new System.Windows.Forms.Padding(2);
 			this.listBoxTicketQueueList.Name = "listBoxTicketQueueList";
 			this.listBoxTicketQueueList.Size = new System.Drawing.Size(224, 173);
 			this.listBoxTicketQueueList.TabIndex = 2;
@@ -147,7 +147,7 @@
 			// btnOptions
 			// 
 			this.btnOptions.Location = new System.Drawing.Point(10, 413);
-			this.btnOptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnOptions.Margin = new System.Windows.Forms.Padding(2);
 			this.btnOptions.Name = "btnOptions";
 			this.btnOptions.Size = new System.Drawing.Size(84, 32);
 			this.btnOptions.TabIndex = 3;
@@ -159,7 +159,7 @@
 			// 
 			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnExit.Location = new System.Drawing.Point(148, 413);
-			this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnExit.Margin = new System.Windows.Forms.Padding(2);
 			this.btnExit.Name = "btnExit";
 			this.btnExit.Size = new System.Drawing.Size(84, 32);
 			this.btnExit.TabIndex = 4;
@@ -178,7 +178,7 @@
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// Form1
+			// frmMain
 			// 
 			this.AcceptButton = this.btnIssueTicket;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,8 +190,9 @@
 			this.Controls.Add(this.listBoxTicketQueueList);
 			this.Controls.Add(this.groupBoxTicketAvailibilityDisplay);
 			this.Controls.Add(this.groupBoxGuestTicketEnter);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.Name = "Form1";
+			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Name = "frmMain";
+			this.Text = "Ticket Queue";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.groupBoxGuestTicketEnter.ResumeLayout(false);
 			this.groupBoxGuestTicketEnter.PerformLayout();
