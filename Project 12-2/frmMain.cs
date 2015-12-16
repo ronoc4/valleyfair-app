@@ -26,6 +26,9 @@ namespace Project_12_2
 		// this button click adds a new ticket based on the information from the options window 
 		private void btnIssueTicket_Click(object sender, EventArgs e)
 		{
+
+			timer1.Enabled = true;
+			timer1.Start(); 
 			// creates a new instance of the ticket class each time the button is clicked this will be the new instance of the ticket
 			Ticket t3 = new Ticket();
 
