@@ -44,7 +44,19 @@ namespace Project_12_2
 		public Ticket()
 		{
 		}
+
 		
+		public Ticket(int ticketNumber, DateTime ticketTime)
+		{
+			// every ticket needs a ticket number 
+			this.TicketNumber = ticketNumber;
+			// date time it was issued 
+			this.TicketTime = ticketTime;
+			// a ticket doesn't need a ticketLimit , but it set in options and carried over to Main form. 
+//			this.ticketLimit = ticketLimit;
+
+		}
+
 
 		// what a ticket should consist of -- In Development still 
 		public Ticket(int ticketNumber, DateTime ticketTime, int ticketLimit)
@@ -98,7 +110,12 @@ namespace Project_12_2
 			}
 			else { return true;  }
 		}
+		List<Ticket> TicketQueue = new List<Ticket>(); 
 
+		public void putTicketInQueue()
+		{
+			TicketQueue.Add(new Ticket (this.ticketNumber ,this.ticketTime)); 
+		}
 		//public TimeSpan SetTimeSpan(int userInput)
 		//{
 		//	this.timeFrame = TimeSpan.Add(userInput).Minutes; 
