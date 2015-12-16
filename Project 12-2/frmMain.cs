@@ -28,7 +28,7 @@ namespace Project_12_2
 		{
 
 			timer1.Enabled = true;
-			timer1.Start(); 
+			timer1.Start();
 			// creates a new instance of the ticket class each time the button is clicked this will be the new instance of the ticket
 			Ticket t3 = new Ticket();
 
@@ -169,7 +169,25 @@ namespace Project_12_2
 		//Still looking into it
 		private void timer1_Tick(object sender, EventArgs e)
 		{
+			if (listBoxTicketQueueList.Items.Count > 0)
+			{
 
+
+				Ticket check = new Ticket();
+				string theTicketInThebox = listBoxTicketQueueList.Items[0].ToString();
+				//	check = (Ticket)listBoxTicketQueueList.Items[0];
+
+				for (int i = listBoxTicketQueueList.Items.Count - 1; i > -1; i--)
+				{
+
+
+					//		var exp = (ExpiringItem)listBoxTicketQueueList.Items[i];
+					TimeSpan timeVisible = DateTime.Now - check.TicketTime;
+					if (timeVisible.TotalSeconds == 30)
+						listBoxTicketQueueList.Items.RemoveAt(0);
+				}
+
+			}
 		}
 	}
 }

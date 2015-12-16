@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Project_12_2
 {
-	class TicketInheritanceClass : Ticket
+	class TicketTimeSlot : Ticket
 	{
-		TicketInheritanceClass ForTheTiime = new TicketInheritanceClass();
+		//TicketTimeSlot ForTheTiime = new TicketTimeSlot();
 
-		DateTime timer1;
-		DateTime timer2;
+		TimeSpan timer1;
+		TimeSpan timer2;
 
 		int minsPerWindow; 
 
 		public void Timer1()
 		{
-			this.timer1 = TicketTime;
+			
+			this.timer1 = 
 
 			
 		}
