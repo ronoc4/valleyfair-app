@@ -17,7 +17,10 @@ namespace Project_12_2
 
 		public void Timer1()
 		{
-		
+			//
+			//this.timer1 = 
+
+			
 		}
 	}
 }

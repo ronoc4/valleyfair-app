@@ -143,7 +143,7 @@ namespace Project_12_2
 				for (int i = listBoxTicketQueueList.Items.Count - 1; i > -1; i--)
 				{
 					TimeSpan timeVisible = DateTime.Now - check.TicketTime;
-					if (timeVisible.TotalSeconds == 30)
+					if (timeVisible.TotalSeconds > 30)
 						listBoxTicketQueueList.Items.RemoveAt(0);
 				}
 			}
