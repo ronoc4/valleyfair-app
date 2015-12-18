@@ -1,33 +1,33 @@
 ﻿namespace Project_12_2
 {
-    partial class frmMain
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class frmMain
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
 			this.components = new System.ComponentModel.Container();
 			this.groupBoxGuestTicketEnter = new System.Windows.Forms.GroupBox();
 			this.lblTickets = new System.Windows.Forms.Label();
@@ -172,7 +172,7 @@
 			// 
 			this.timerTimeNow.Enabled = true;
 			this.timerTimeNow.Interval = 1000;
-			this.timerTimeNow.Tick += new System.EventHandler(this.timeNowForm);
+//			this.timerTimeNow.Tick += new System.EventHandler(this.timeNowForm);
 			// 
 			// timer1
 			// 
@@ -201,23 +201,23 @@
 			this.groupBoxTicketAvailibilityDisplay.PerformLayout();
 			this.ResumeLayout(false);
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.GroupBox groupBoxGuestTicketEnter;
-        private System.Windows.Forms.Label lblTickets;
-        private System.Windows.Forms.GroupBox groupBoxTicketAvailibilityDisplay;
-        private System.Windows.Forms.Button btnIssueTicket;
-        private System.Windows.Forms.Label lblTimeofEntry;
-        private System.Windows.Forms.Label lblOutsandingTicketTotal;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBoxTicketQueueList;
-        private System.Windows.Forms.Button btnOptions;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Timer timerTimeNow;
-        private System.Windows.Forms.Timer timer1;
-    }
+		private System.Windows.Forms.GroupBox groupBoxGuestTicketEnter;
+		private System.Windows.Forms.Label lblTickets;
+		private System.Windows.Forms.GroupBox groupBoxTicketAvailibilityDisplay;
+		private System.Windows.Forms.Button btnIssueTicket;
+		private System.Windows.Forms.Label lblTimeofEntry;
+		private System.Windows.Forms.Label lblOutsandingTicketTotal;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ListBox listBoxTicketQueueList;
+		private System.Windows.Forms.Button btnOptions;
+		private System.Windows.Forms.Button btnExit;
+		private System.Windows.Forms.Timer timerTimeNow;
+		private System.Windows.Forms.Timer timer1;
+	}
 }
 

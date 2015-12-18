@@ -61,7 +61,7 @@ namespace Project_12_2
 				// set ticket property values
 				ticketSettings.TicketNumber = Convert.ToInt16(txtFirstTicket.Text);
 				ticketSettings.TicketTime = dateTimePickerStartTime.Value;
-				ticketSettings.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
+				ticketSettings.AllowedGuestPerTrip = Convert.ToInt16(txtGuestWindow.Text);
 				//t.TicketLimit = Convert.ToInt16(txtGuestWindow.Text);
 
 
